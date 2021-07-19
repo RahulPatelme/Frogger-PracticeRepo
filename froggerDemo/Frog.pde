@@ -4,7 +4,7 @@ class Frog extends Rectangle{
   PImage up, left, right, down;
   PImage frog;
   int frogSize, frogX, frogY;
-  PVector speed;
+  PVector frogLoc;
   
   //Frog(int frogSize, int frogX, int frogY ){
   //  this.frogSize = frogSize;
@@ -20,11 +20,11 @@ class Frog extends Rectangle{
     super(x,y,w,w);
     frog = loadImage("data/images/frog.png");
     frog.resize(w,w);
-    speed = new PVector(x, y);
+    frogLoc = new PVector(x, y);
   }
   
   void up(){
-    image(frog, speed.x, speed.y);
+    image(frog, frogLoc.x, frogLoc.y);
     
     //flip -- not working
     //pushMatrix();
@@ -40,8 +40,8 @@ class Frog extends Rectangle{
   void move(float xdir, float ydir){
     //slow down the frog using framecount
     if (frameCount%5==0){
-      speed.x += xdir*w;
-      speed.y += ydir*w;
+      frogLoc.x += xdir*w;
+      frogLoc.y += ydir*w;
     }
     
   }
