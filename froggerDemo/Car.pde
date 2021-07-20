@@ -5,7 +5,7 @@ class Car extends Rectangle
   Car(float x, float y, float w, float h, float s) 
    {
      //initializing the inherited properties
-     super(x, y, w, h);
+     super(x, y, w, h,s);
      speed = s;
    }
  
