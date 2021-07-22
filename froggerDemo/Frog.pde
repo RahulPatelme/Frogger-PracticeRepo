@@ -1,48 +1,38 @@
 class Frog extends Rectangle{
-  int picW = 512;
-  int picH = 800;
-  PImage up, left, right, down;
-  PImage frog;
-  int frogSize, frogX, frogY;
-  PVector frogLoc;
   
-  //Frog(int frogSize, int frogX, int frogY ){
-  //  this.frogSize = frogSize;
-  //  this.frogX = frogX;
-  //  this.frogY = frogY;
-    
-  //  frog = loadImage("data/images/frog.png");
-  //  frog.resize(frogSize,frogSize);
-  //  speed = new PVector(frogX, frogY);
-  //}
+  Obstacle attached = null;
   
-  Frog(int x, int y, int w){
+  Frog(float x, float y, float w)
+  {
     super(x,y,w,w);
-    frog = loadImage("data/images/frog.png");
-    frog.resize(w,w);
-    frogLoc = new PVector(x, y);
+  }
+
+  void attach(Obstacle log)
+  {
+    attached = log;
   }
   
-  void up(){
-    image(frog, frogLoc.x, frogLoc.y);
-    
-    //flip -- not working
-    //pushMatrix();
-    //scale( -1, 1 );
-    //image( frog, -30, 0 );
-    //popMatrix();
-  }
-  
-  void spawn(){
-    
-  }
-  
-  void move(float xdir, float ydir){
-    //slow down the frog using framecount
-    if (frameCount%5==0){
-      frogLoc.x += xdir*w;
-      frogLoc.y += ydir*w;
+  void update()
+  {
+    if(attached != null)
+    {
+      frog.x += attached.speed;
     }
     
+    frog.x = constrain(x, 0, width-w);
+    frog.y = constrain(y, 0, height-h);
+  }
+  
+  void show()
+  {
+    fill(0, 255, 0, 200);
+    rect(x,y,w,w);
+  }
+  
+  void move(float xdir, float ydir)
+  {
+    x += xdir * grid;
+    y += ydir * grid;
+    frog.attach(null);
   }
 }

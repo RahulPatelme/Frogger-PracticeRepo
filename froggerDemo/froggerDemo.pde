@@ -1,99 +1,66 @@
-PImage frog;
-PImage []left;
-PImage []right;
-PImage []up;
-PImage []bottom;
-//PImage background;
+Frog frog;
+Lane[] lanes;
 
-int totFrames = 3;
-int imgWidth = 142;
-int imgHeight = 88;
-int i=0;
-int size = 50;
-PVector speed;
-int x,y;
-int dir=1;
-int grid = 5;
-int backWidth = 682;
-int backHeight = 597;
+int SAFETY = 0;
+int CAR = 1;
+int LOG = 2;
 
+float grid = 50;
 
-void setup(){
-  size(682,597);
-  //background = loadImage("data/photos/background2.png");
-  left = new PImage[totFrames];
-  right = new PImage[totFrames];
-  up = new PImage[totFrames];
-  bottom = new PImage[totFrames];
-  frog = loadImage("data/photos/ch.jpg");
-  for (int i=0; i<totFrames; i++){
-    up[i] = frog.get(i*imgWidth/6,0,imgWidth/6, imgHeight/3);
-    left[i] = frog.get(i*imgWidth/2, 0, imgWidth/6, imgHeight/3);
-  }
-  x=width/2;
-  y=height-size;
-  speed = new PVector(x,y);
+void resetGame()
+{
+  frog = new Frog(width/2-grid/2, height-grid, grid);
+  frog.attach(null);
 }
 
+void setup()
+{
+  size(500, 450);
+  resetGame();
+  
+  int totalLanes = int(height / grid);
+  lanes = new Lane[totalLanes];
+  
+  lanes[0] = new Lane(0,color(51,204,51));
+  lanes[1] = new Lane(1,LOG,3,1.5,200,2.5,color(51,153,255));
+  lanes[2] = new Lane(2,LOG,3,1.8,200,-2,color(51,153,255));
+  lanes[3] = new Lane(3,LOG,3,2.5,190,1,color(51,153,255));
+  lanes[4] = new Lane(4,color(51,204,51));
+  lanes[5] = new Lane(5,CAR,3,1,200,2.5,color(100));
+  lanes[6] = new Lane(6,CAR,3,1.5,200,-1.5,color(100));
+  lanes[7] = new Lane(7,CAR,3,1,180,2,color(100));
+  lanes[8] = new Lane(8,color(51,204,51));
+}
 
-void draw(){
- // background.resize(backWidth,backHeight);
+void draw()
+{
   background(0);
-  if (keyPressed){
-      if (keyCode == DOWN){
-        up();
-        speed.y+=dir*grid;
-        increment();
-      }
-      else if (keyCode == LEFT){
-        left();
-        speed.x-=dir*grid;
-        increment();
-      }
-      else if (keyCode == RIGHT){
-        left();
-        speed.x+=dir*grid;
-        increment();
-      }
-      else if (keyCode == UP){
-        up();
-        speed.y-=dir*grid;
-        increment();
-      }
-    }else{
-      if (keyCode == DOWN){
-        up();
-      }
-      else if (keyCode == UP){
-        up();
-      }
-      else if (keyCode == RIGHT){
-        left();
-      }
-      else if (keyCode == LEFT){
-        left();
-      }      
-    }
+  
+  for(Lane lane : lanes)
+  {
+    lane.run();
+  }
+  
+  frog.update();
+  frog.show();
+  
+  int laneIndex = int(frog.y / grid);
+  lanes[laneIndex].check(frog);
 }
 
-
-void up(){
-  up[i].resize(size, size);
-  image(up[i], speed.x,speed.y);
-}
-
-
-void left(){
-  left[i].resize(size,size);
-  image(left[i], speed.x, speed.y);
-}
-
-
-void increment(){
-  if(frameCount%5==0){
-    i++;
-    if (i==up.length){
-      i=0;
-    }
+void keyPressed()
+{
+  if(keyCode == UP)
+  {
+    frog.move(0, -1);
+  } else if(keyCode == DOWN)
+  {
+    frog.move(0, 1);
+  } else if(keyCode == RIGHT)
+  {
+    frog.move(1, 0);
+  } else if(keyCode == LEFT)
+  {
+    frog.move(-1, 0);
   }
 }
