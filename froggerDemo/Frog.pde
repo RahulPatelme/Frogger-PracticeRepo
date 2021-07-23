@@ -1,38 +1,67 @@
-class Frog extends Rectangle{
-  
+class Frog extends Rectangle {
+  //int picW = 512;
+  //int picH = 800;
+  PImage up, left, right, down;
+  int frogSize, frogX, frogY;
+  PVector frogLoc;
+
   Obstacle attached = null;
-  
+
   Frog(float x, float y, float w)
   {
-    super(x,y,w,w);
+    super(x, y, w, w);
+    up = loadImage("data/images/up.png");
+    up.resize((int)w, (int)w);
+    down = loadImage("data/images/down.png");
+    down.resize((int)w, (int)w);
+    left = loadImage("data/images/left.png");
+    left.resize((int)w, (int)w);
+    right = loadImage("data/images/right.png");
+    right.resize((int)w, (int)w);
+    
+    //frogLoc = new PVector(x, y);
   }
 
   void attach(Obstacle log)
   {
     attached = log;
   }
-  
+
   void update()
   {
-    if(attached != null)
+    if (attached != null)
     {
-      frog.x += attached.speed;
+      x += attached.speed;
     }
-    
-    frog.x = constrain(x, 0, width-w);
-    frog.y = constrain(y, 0, height-h);
+
+    x = constrain(x, 0, width-w);
+    y = constrain(y, 0, height-h);
   }
-  
-  void show()
+
+  void showUp()
   {
-    fill(0, 255, 0, 200);
-    rect(x,y,w,w);
+    image(up, x, y);
   }
-  
+
+  void showDown()
+  {
+    image(down, x, y);
+  }
+
+  void showLeft()
+  {
+    image(left, x, y);
+  }
+
+  void showRight()
+  {
+    image(right, x, y);
+  }
+
   void move(float xdir, float ydir)
   {
     x += xdir * grid;
     y += ydir * grid;
-    frog.attach(null);
+    attach(null);
   }
 }
