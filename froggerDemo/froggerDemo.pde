@@ -10,7 +10,7 @@ float grid = 50;
 void resetGame()
 {
   frog = new Frog(width/2-grid/2, height-grid, grid);
-  frog.attach(null);
+  //frog.attach(null);
 }
 
 void setup()
@@ -42,25 +42,60 @@ void draw()
   }
   
   frog.update();
-  frog.show();
+  if (keyCode == UP){
+      frog.showUp();
+    }
+    else if (keyCode == LEFT){
+      frog.showLeft();
+    }
+    else if (keyCode == DOWN){
+      frog.showDown();
+    }
+    else if (keyCode == RIGHT){
+      frog.showRight();
+    }
   
   int laneIndex = int(frog.y / grid);
   lanes[laneIndex].check(frog);
+  
+  
 }
 
 void keyPressed()
 {
-  if(keyCode == UP)
-  {
-    frog.move(0, -1);
-  } else if(keyCode == DOWN)
-  {
-    frog.move(0, 1);
-  } else if(keyCode == RIGHT)
-  {
-    frog.move(1, 0);
-  } else if(keyCode == LEFT)
-  {
-    frog.move(-1, 0);
+  if (keyPressed){
+    if (keyCode == UP){
+      frog.showUp();
+      frog.move(0,-1);
+    }
+    else if (keyCode == LEFT){
+      frog.showLeft();
+      frog.move(-1,0);
+    }
+    else if (keyCode == DOWN){
+      frog.showDown();
+      frog.move(0,1);
+    }
+    else if (keyCode == RIGHT){
+      frog.showRight();
+      frog.move(1,0);
+    }
+  }else {
+    if (keyCode == DOWN){
+      frog.showDown();
+      frog.move(0,0);
+    }
+    else if (keyCode == UP){
+      frog.showUp();
+      frog.move(0,0);
+    }
+    else if (keyCode == RIGHT){
+      frog.showRight();
+      frog.move(0,0);
+    }
+    else if (keyCode == LEFT){
+      frog.showLeft();
+      frog.move(0,0);
+    }
   }
 }

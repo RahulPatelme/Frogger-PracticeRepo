@@ -57,10 +57,29 @@ class Lane extends Rectangle {
   {
     fill(col);
     rect(x,y,w,h);
-    for(Obstacle o : obstacles)
+    //for(Obstacle o : obstacles)
+    //{
+    //  o.update();
+    //  o.showCar();
+    //}
+    
+    //display cars
+    if(type == CAR)
     {
-      o.update();
-      o.show();
+      for(Obstacle o : obstacles)
+      {
+        o.update();
+        o.showCar();
+      }
+    } 
+    //display logs
+    else if(type == LOG)
+    {
+      for(Obstacle o : obstacles)
+      {
+        o.update();
+        o.showLog();
+      }
     }
   }
 }
