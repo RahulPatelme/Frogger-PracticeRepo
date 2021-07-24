@@ -34,12 +34,15 @@ float grid = 50;
 //Function for reseting the frogs position
 void resetGame()
 {
+  //Frog gets placed in a position which is in the middle of screen
   frog = new Frog(width/2-grid/2, height-grid, grid);
 }
 
 void setup()
 {
+  //setting the window size
   size(800, 650);
+  //Function to place frog here as starting point as well
   resetGame();
   
   //gamemenu = new GameMenu();
@@ -57,8 +60,11 @@ int totalLanes = 13;
 //int(height / grid);
 lanes = new Lane[totalLanes];
 //Lanes start from top of screen and go down, here we also randomize the speed of the obstacles objects
+
+//(number of lane, color of lane)
 lanes[0] = new Lane(0,color(51,204,51));
-lanes[1] = new Lane(1,LOG,3,1.5,200,random(-5,5),color(51,153,255));
+//(lane number, type of obstacle, length of obstacle, distance btw obstacles, randomized speed of obstacles, color of lane)
+lanes[1] = new Lane(1,LOG,3,5,200,random(-5,5),color(51,153,255));
 lanes[2] = new Lane(2,LOG,3,1.5,200,random(-5,5),color(51,153,255));
 lanes[3] = new Lane(3,color(51,204,51));
 lanes[4] = new Lane(4,LOG,3,1.8,200,random(-4,4),color(51,153,255));
@@ -156,6 +162,8 @@ void startGame() {
   gameScreen=1;
 }
 
+
+//Function for frog movement and sprite display
 void keyPressed()
 {
   if (keyPressed){

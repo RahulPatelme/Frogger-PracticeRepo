@@ -5,6 +5,7 @@ class Rectangle
   float w;
   float h;
   
+  //defining constructor variables
   Rectangle(float x, float y, float w, float h)
   {
      this.x = x;
@@ -13,8 +14,10 @@ class Rectangle
      this.h = h;  
   }
 
+//setting up the collision detection
 boolean intersects(Rectangle other)
 {
+  
      float left= x;
      float right =x + w;
      float top = y;
@@ -29,5 +32,6 @@ boolean intersects(Rectangle other)
     right <= oleft ||
     top >= obottom ||
     bottom <= otop);
- }
+}
+
 }
