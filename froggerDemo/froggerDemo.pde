@@ -2,6 +2,8 @@ Frog frog;
 Lane[] lanes;
 PImage bg;
 //GameMenu gamemenu;
+Timer startTimer; 
+
 
   boolean Menu = true, Play;
   //PImage bg;
@@ -79,6 +81,8 @@ endscreen = new EndScreen();
   rectMode(CENTER);
   stroke(245, 245, 245); //button border
   textSize(35); //text inside buttons
+  
+  startTimer = new Timer(0); //Timer starting position
 }
 
 
@@ -89,6 +93,7 @@ void draw()
     startMenu(); 
   } else if (gameScreen == 1) {
     secondScreen();
+    TimerDisplay();
   } else if (gameScreen == 2) {
     thirdScreen();
   } else if (gameScreen == 3) {
@@ -103,6 +108,7 @@ void draw()
   
   void secondScreen() {
   gameScreen = 1;
+ 
   background(0);
  
   //Drawing the lanes
@@ -254,4 +260,12 @@ void keyPressed()
     if (Button1 == 0 && Button2 == 0 && Button3 == 0) { //I dont remember what this code is for
       Play = true;
     }
+}
+
+void TimerDisplay() {
+    startTimer.countUp();
+ 
+    fill(255);
+    text(startTimer.getTime(), 10, 20); 
+    textSize(20);
 }
