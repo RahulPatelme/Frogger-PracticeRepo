@@ -38,9 +38,7 @@ class Frog extends Rectangle {
     {
       x += attached.speed;
     }
-    if(attached == lanes[0]) {
-         
-    }
+
     //Defining walls for frog staying in-screen at all times
     x = constrain(x, 0, width-w);
     y = constrain(y, 0, height-h);
