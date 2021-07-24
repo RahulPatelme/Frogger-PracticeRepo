@@ -6,6 +6,11 @@ PImage bg;
   boolean Menu = true, Play;
   //PImage bg;
   float Button1 = 100, Button2 = 100, Button3 = 100;
+  
+EndScreen endscreen;
+boolean MenuEnd = true;
+PImage bgEnd;
+//PImage win;
 
 // We control which screen is active by settings / updating
 // gameScreen variable. We display the correct screen according
@@ -63,6 +68,17 @@ lanes[9] = new Lane(9,color(51,204,51));
 lanes[10] = new Lane(10,CAR,3,1.5,200,random(-3,3),color(100));
 lanes[11] = new Lane(11,CAR,3,1,180,random(-2,2),color(100));
 lanes[12] = new Lane(12,color(51,204,51));
+
+
+endscreen = new EndScreen();
+ // size(800, 450);
+
+  bgEnd = loadImage("data/images/froggerEnd800-650.jpeg");
+  
+  
+  rectMode(CENTER);
+  stroke(245, 245, 245); //button border
+  textSize(35); //text inside buttons
 }
 
 
@@ -115,11 +131,19 @@ void draw()
 }
 
   void thirdScreen() {
+    //gameScreen = 2;
     
   }
   
   void fourthScreen() {
-    
+    gameScreen = 3;
+    background(bgEnd);
+  
+  //imageMode(CENTER);
+  //image(win, width/2, height/2, 250, 250); 
+  
+  endscreen.EndText();
+  endscreen.EndMenu();
   }
 
 void startGame() {

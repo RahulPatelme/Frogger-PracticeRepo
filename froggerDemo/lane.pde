@@ -35,8 +35,7 @@ class Lane extends Rectangle {
           resetGame();
         }
       }
-    } else if(type == LOG)
-    {
+    } else if(type == LOG) {
       boolean ok = false;
       for(Obstacle o : obstacles)
       {
@@ -57,13 +56,7 @@ class Lane extends Rectangle {
   {
     fill(col);
     rect(x,y,w,h);
-    //for(Obstacle o : obstacles)
-    //{
-    //  o.update();
-    //  o.showCar();
-    //}
-    
-    //display cars
+ 
     if(type == CAR)
     {
       for(Obstacle o : obstacles)
@@ -72,6 +65,7 @@ class Lane extends Rectangle {
         o.showCar();
       }
     } 
+    
     //display logs
     else if(type == LOG)
     {
