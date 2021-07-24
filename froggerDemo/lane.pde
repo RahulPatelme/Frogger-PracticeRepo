@@ -5,20 +5,20 @@ class Lane extends Rectangle {
   
   Lane(int index, int t, int n, float len, float spacing, float speed, color c)
   {
-    super(0,index*grid,width,grid);
+    super(0,index*grid,width*2,grid*1f);
     type = t;
     obstacles = new Obstacle[n];
     float offset = random(0,200);
     for(int i = 0; i < n; i++)
     {
-      obstacles[i] = new Obstacle(offset + spacing*i, index*grid, grid*len, grid, speed);
+      obstacles[i] = new Obstacle(offset + spacing*i, index*grid-25, grid*len, grid, speed);
     }
     col = c;
   }
   
   Lane(int index, color c)
   {
-    super(0,index*grid,width,grid);
+    super(0,index*grid,width*2,grid*1f);
     type = SAFETY;
     obstacles = new Obstacle[0];
     col = c;

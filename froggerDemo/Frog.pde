@@ -40,22 +40,22 @@ class Frog extends Rectangle {
 
   void showUp()
   {
-    image(up, x, y);
+    image(up, x, y-15);
   }
 
   void showDown()
   {
-    image(down, x, y);
+    image(down, x, y-15);
   }
 
   void showLeft()
   {
-    image(left, x, y);
+    image(left, x, y-15);
   }
 
   void showRight()
   {
-    image(right, x, y);
+    image(right, x, y-15);
   }
 
   void move(float xdir, float ydir)

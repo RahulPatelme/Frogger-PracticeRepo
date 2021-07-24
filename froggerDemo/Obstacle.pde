@@ -21,9 +21,9 @@ class Obstacle extends Rectangle{
     cars2 = loadImage("data/images/carGreenFlipTrans.png");
   }
   
-  //void resize() {
-  // cars2.resize(100, 100); 
-  //}
+  void resize() {
+   cars2.resize(100, 100); 
+  }
   
   void update()
   {
