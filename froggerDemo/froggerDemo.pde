@@ -36,6 +36,8 @@ void draw()
 {
   background(0);
   
+  //car2.resize();
+  
   for(Lane lane : lanes)
   {
     lane.run();
