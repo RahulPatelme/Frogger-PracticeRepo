@@ -64,14 +64,14 @@ lanes = new Lane[totalLanes];
 //(number of lane, color of lane)
 lanes[0] = new Lane(0,color(51,204,51));
 //(lane number, type of obstacle, length of obstacle, distance btw obstacles, randomized speed of obstacles, color of lane)
-lanes[1] = new Lane(1,LOG,3,5,200,random(-5,5),color(51,153,255));
-lanes[2] = new Lane(2,LOG,3,1.5,200,random(-5,5),color(51,153,255));
+lanes[1] = new Lane(1,LOG,5,1.5,400,random(-5,5),color(51,153,255));
+lanes[2] = new Lane(2,LOG,3,3,300,random(-5,5),color(51,153,255));
 lanes[3] = new Lane(3,color(51,204,51));
-lanes[4] = new Lane(4,LOG,3,1.8,200,random(-4,4),color(51,153,255));
+lanes[4] = new Lane(4,LOG,2,1.8,200,random(-4,4),color(51,153,255));
 lanes[5] = new Lane(5,LOG,3,2.5,190,random(-1,1),color(51,153,255));
 lanes[6] = new Lane(6,color(51,204,51));
-lanes[7] = new Lane(7,CAR,3,1,200,random(-5,5),color(100));
-lanes[8] = new Lane(8,CAR,3,1,200,random(-4,4),color(100));
+lanes[7] = new Lane(7,CAR,4,1,200,random(-5,5),color(100));
+lanes[8] = new Lane(8,CAR,5,1,200,random(-4,4),color(100));
 lanes[9] = new Lane(9,color(51,204,51));
 lanes[10] = new Lane(10,CAR,3,1.5,200,random(-3,3),color(100));
 lanes[11] = new Lane(11,CAR,3,1,180,random(-2,2),color(100));
@@ -276,4 +276,9 @@ void TimerDisplay() {
     fill(255);
     text(startTimer.getTime(), 10, 20); 
     textSize(20);
+}
+
+void frogSafeCheck()
+{
+  if 
 }
