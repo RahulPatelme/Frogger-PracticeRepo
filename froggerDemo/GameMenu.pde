@@ -60,6 +60,7 @@ class GameMenu {
       && mouseY > height/2 + 75 - 25 && mouseY < height/2 + 75 + 25) { //pointer collision with Button3
         if (mousePressed) {
           exit();  //Quits the window
+          
         }
         if (Button3 < 150) { //Highlighting effect by darkening the colour for button 3
           Button3 += 100;

@@ -1,5 +1,6 @@
 class Lane extends Rectangle {
   Obstacle[] obstacles;
+  Coin[] coin;
   int col;
   int type;
   
@@ -16,6 +17,11 @@ class Lane extends Rectangle {
       //Defining the obstacle variables in the lane
       obstacles[i] = new Obstacle(offset + spacing*i, index*grid-25, grid*len, grid, speed);
     }
+    //for(int i = 0; i < n; i++)
+    //{
+    //  //Defining the coin variables in the lane
+    //  coin[i] = new Coin(x, y, w);
+    //}
     col = c;
   }
   

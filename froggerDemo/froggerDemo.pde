@@ -118,13 +118,13 @@ void draw()
   }
 }
 
-  void firstScreen() {
+void firstScreen() {
   gameScreen = 0; 
   background(bg);
   gamemenu.startMenu();
-  }
+}
   
-  void secondScreen() {
+void secondScreen() {
   gameScreen = 1;
   background(0);
  
@@ -148,65 +148,47 @@ void draw()
     }
     else if (keyCode == RIGHT){
       frog.showRight();
+    }else{
+      frog.showUp();
     }
   
   int laneIndex = int(frog.y / grid);
   lanes[laneIndex].check(frog);
 }
 
-  void thirdScreen() {
-    gameScreen = 2;
-    background(bgGuide); 
-    guidescreen.GuideMenu();
-  }
+void thirdScreen() {
+  gameScreen = 2;
+  background(bgGuide); 
+  guidescreen.GuideText();
+  guidescreen.GuideMenu();
+}
   
-  void fourthScreen() {
-    gameScreen = 3;
-    background(bgEnd);
+void fourthScreen() {
+  gameScreen = 3;
+  background(bgEnd);
   endscreen.EndText();
   endscreen.EndMenu(); 
-  }
+}
 
 void startGame() { //Where are we using this?
   gameScreen=1;
 }
 
-//Function for frog movement and sprite display
+//Function for frog movement
 void keyPressed()
 {
   if (keyPressed){
     if (keyCode == UP){
-      frog.showUp();
       frog.move(0,-1);
     }
     else if (keyCode == LEFT){
-      frog.showLeft();
       frog.move(-1,0);
     }
     else if (keyCode == DOWN){
-      frog.showDown();
       frog.move(0,1);
     }
     else if (keyCode == RIGHT){
-      frog.showRight();
       frog.move(1,0);
-    }
-  }else {
-    if (keyCode == DOWN){
-      frog.showDown();
-      frog.move(0,0);
-    }
-    else if (keyCode == UP){
-      frog.showUp();
-      frog.move(0,0);
-    }
-    else if (keyCode == RIGHT){
-      frog.showRight();
-      frog.move(0,0);
-    }
-    else if (keyCode == LEFT){
-      frog.showLeft();
-      frog.move(0,0);
     }
   }
 }
