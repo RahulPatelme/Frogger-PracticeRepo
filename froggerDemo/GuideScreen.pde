@@ -4,8 +4,7 @@ class GuideScreen {
   
   void GuideText() {
     textSize(38);
-    text("Guide:", (width /2) - (textWidth("Guide:") / 2), 80); 
-    //fill(153, 223, 165); 
+    text("Guide:", (width /2) - (textWidth("Guide:") / 2), 80);  
     
     //SCORE
     //TIMER

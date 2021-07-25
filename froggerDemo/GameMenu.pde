@@ -44,8 +44,7 @@ class GameMenu {
 
       if (mouseX > width/2 - 100 && mouseX < width/2 + 100 
       && mouseY > height/2 - 25 && mouseY < height/2 + 25) { //pointer collision with Button2
-        if (mousePressed) {
-          //delay(50); //Why? 
+        if (mousePressed) { 
           //Call guide window over here
           thirdScreen();
         }
