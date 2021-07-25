@@ -1,10 +1,9 @@
 Frog frog;
 Lane[] lanes;
 PImage bg;
-//GameMenu gamemenu;
 Timer startTimer; 
 
- //importing sound library
+//importing sound library
 import processing.sound.*;
   
   SoundFile file;
@@ -14,13 +13,11 @@ import processing.sound.*;
   String path;
 
   boolean Menu = true, Play;
-  //PImage bg;
   float Button1 = 100, Button2 = 100, Button3 = 100;
   
 EndScreen endscreen;
 boolean MenuEnd = true;
 PImage bgEnd;
-//PImage win;
 
 // We control which screen is active by settings / updating
 // gameScreen variable. We display the correct screen according
@@ -59,7 +56,6 @@ void setup()
     file.play(); 
     file.loop(); 
   
-  //gamemenu = new GameMenu();
   //loading the background image
   bg = loadImage("data/images/frogger800-650.jpeg");
   
@@ -68,10 +64,8 @@ void setup()
   stroke(245, 245, 245); //button border
   textSize(45); //text inside buttons
   
-  //background(0);
   //creating lanes by calling the class
 int totalLanes = 13;
-//int(height / grid);
 lanes = new Lane[totalLanes];
 //Lanes start from top of screen and go down, here we also randomize the speed of the obstacles objects
 
@@ -93,10 +87,7 @@ lanes[12] = new Lane(12,color(51,204,51));
 
 
 endscreen = new EndScreen();
- // size(800, 450);
-
   bgEnd = loadImage("data/images/froggerEnd800-650.jpeg");
-  
   
   rectMode(CENTER);
   stroke(245, 245, 245); //button border
@@ -129,7 +120,6 @@ void draw()
   
   void secondScreen() {
   gameScreen = 1;
- 
   background(0);
  
   //Drawing the lanes
@@ -160,17 +150,11 @@ void draw()
 
   void thirdScreen() {
     //gameScreen = 2;
-    
   }
   
   void fourthScreen() {
     gameScreen = 3;
     background(bgEnd);
-    //TimerReset();
-  
-  //imageMode(CENTER);
-  //image(win, width/2, height/2, 250, 250); 
-  
   endscreen.EndText();
   endscreen.EndMenu();
   }
