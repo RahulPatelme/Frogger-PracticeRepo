@@ -7,7 +7,7 @@ class Frog extends Rectangle {
 
   Obstacle attached = null;
 
-  //Defining frog variables (position, height,width) 
+  //Defining frog variables (position, height, width) 
   Frog(float x, float y, float w)
   {
     //inheriting values from parent class

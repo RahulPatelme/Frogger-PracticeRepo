@@ -17,7 +17,6 @@ class Rectangle
 //setting up the collision detection
 boolean intersects(Rectangle other)
 {
-  
      float left= x;
      float right =x + w;
      float top = y;
@@ -32,6 +31,5 @@ boolean intersects(Rectangle other)
     right <= oleft ||
     top >= obottom ||
     bottom <= otop);
-}
-
+ }
 }

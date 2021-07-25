@@ -1,7 +1,5 @@
 class GameMenu {
-  //GameMenu gamemenu;
   boolean Menu = true, Play;
-  //PImage bg;
   float Button1 = 100, Button2 = 100, Button3 = 100;
 
   void startMenu() {  
@@ -14,16 +12,18 @@ class GameMenu {
     
     
     //Button 2: 
-    fill(255, 77, 80, Button2);
-    rect(width/2, height/2, 200, 50, 5);
-    fill(255);
+    fill(255, 77, 80, Button2); //Button margin colour
+    rect(width/2, height/2, 200, 50, 5); //Drawing the button
+    fill(255); //Font colour for inside of the button
+    //Button text
     text("Guide", (width /2) - (textWidth("Guide") / 2), (height/2) + ((textAscent() - textDescent()) / 2));
     
     
     //Button 3:
-    fill(255, 77, 80, Button3);
-    rect(width/2, height/2 + 75, 200, 50, 5);
-    fill(255);
+    fill(255, 77, 80, Button3); //Button margin colour
+    rect(width/2, height/2 + 75, 200, 50, 5); //Drawing the button
+    fill(255); //Font colour for inside of the button
+    //Button text
     text("Quit", (width /2) - (textWidth("Quit") / 2), (height/2) + ((textAscent() - textDescent()) / 2) + 75);
     
     
@@ -70,19 +70,6 @@ class GameMenu {
       Play = true;
     }
 
-    
-    //if (!Menu) { //Do we need this? 
-    //  if (Button1 > 0) {
-    //    Button1 -= 5;
-    //  }
-    //  if (Button2 > 0) {
-    //    Button2 -= 5;
-    //  }
-    //  if (Button3 > 0) {
-    //    Button3 -= 5;
-    //  }
-    //}
-    
     if (Button1 == 0 && Button2 == 0 && Button3 == 0) { //Idk what this code is for
       Play = true;
     }

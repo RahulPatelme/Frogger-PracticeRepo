@@ -12,7 +12,7 @@ class Timer  {
    return(Time); 
  }
  
- void setTime(float set) //set the timer //Do we need this? 
+ void setTime(float set) //set the timer 
  {
   Time = set; 
  }

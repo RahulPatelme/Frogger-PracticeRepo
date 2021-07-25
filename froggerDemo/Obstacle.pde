@@ -55,8 +55,7 @@ class Obstacle extends Rectangle{
     }
   }
   
-   void showLog()
-  {
+   void showLog() {
     image(log, x, y);
   }
 }

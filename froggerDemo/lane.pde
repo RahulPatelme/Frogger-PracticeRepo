@@ -3,7 +3,7 @@ class Lane extends Rectangle {
   int col;
   int type;
   
- //Defining lane variables
+  //Defining lane variables
   Lane(int index, int t, int n, float len, float spacing, float speed, color c)
   {
     //Setting variables values
@@ -28,7 +28,6 @@ class Lane extends Rectangle {
     col = c;
   }
   
-  
   //Collision detection
   void check(Frog frog)
   {
@@ -43,6 +42,7 @@ class Lane extends Rectangle {
         }
       }
     }
+    
     //if the obstacle is type log, attach the frog object to the obstacle
     else if(type == LOG) {
       boolean ok = false;
@@ -54,6 +54,7 @@ class Lane extends Rectangle {
           frog.attach(o);
         }
       }
+      
       //if the frog is in the log lane, but does not intersect with log object, reset the game
       if(!ok)
       {

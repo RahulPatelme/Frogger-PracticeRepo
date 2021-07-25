@@ -3,27 +3,10 @@ Lane[] lanes;
 PImage bg;
 Timer startTimer; 
 
-//importing sound library
-import processing.sound.*;
-  SoundFile file;
-  
-  //attaching audio file
-  String audioName = "data/sounds/frogger-sound.wav";
-  String path;
-  
 GameMenu gamemenu;  
 EndScreen endscreen;
 boolean MenuEnd = true;
 PImage bgEnd;
-
-// We control which screen is active by settings / updating
-// gameScreen variable. We display the correct screen according
-// to the value of this variable.
-//
-// 0: Menu Screen 
-// 1: Guide Screen 
-// 2: Game Screen
-// 3: End Screen
 
 int gameScreen = 0;
 
@@ -33,12 +16,29 @@ int LOG = 2;
 
 float grid = 50;
 
+//importing sound library
+import processing.sound.*;
+  SoundFile file;
+  
+  //attaching audio file
+  String audioName = "data/sounds/frogger-sound.wav";
+  String path;
+
+// We control which screen is active by settings / updating
+// gameScreen variable. We display the correct screen according
+// to the value of this variable.
+//
+// 0: Menu Screen 
+// 1: Game Screen 
+// 2: Guide Screen
+// 3: End Screen
+
 //Function for reseting the frogs position
 void resetGame()
 {
   //Frog gets placed in a position which is in the middle of screen
-  //frog = new Frog(width/2-grid/2, height-grid, grid);
-  frog = new Frog(width/2-grid/2, height-grid*10, grid);
+  frog = new Frog(width/2-grid/2, height-grid, grid);
+  //frog = new Frog(width/2-grid/2, height-grid*10, grid); //For testing purposes
 }
 
 void setup()
@@ -53,7 +53,7 @@ void setup()
     file.play(); 
     file.loop(); 
   
-  //loading the background image
+  //loading the background image for the starting menu
   gamemenu = new GameMenu();
   bg = loadImage("data/images/frogger800-650.jpeg");
   
@@ -62,7 +62,7 @@ void setup()
   stroke(245, 245, 245); //button border
   textSize(45); //text inside buttons
   
-  //creating lanes by calling the class
+//creating lanes by calling the class
 int totalLanes = 13;
 lanes = new Lane[totalLanes];
 //Lanes start from top of screen and go down, here we also randomize the speed of the obstacles objects
@@ -85,7 +85,8 @@ lanes[12] = new Lane(12,color(51,204,51));
 
 
 endscreen = new EndScreen();
-  bgEnd = loadImage("data/images/froggerWin800-650.jpeg");
+//loading the background image for the end screen
+bgEnd = loadImage("data/images/froggerWin800-650.jpeg");
   
   rectMode(CENTER);
   stroke(245, 245, 245); //button border
@@ -93,13 +94,12 @@ endscreen = new EndScreen();
   
   startTimer = new Timer(0); //Timer starting position
 }
-
+//SETUP ENDS//
 
 void draw()
 {
   if (gameScreen == 0) {
     firstScreen();
-   // startMenu(); 
   } else if (gameScreen == 1) {
     secondScreen();
     TimerDisplay();
@@ -112,7 +112,6 @@ void draw()
 }
 
   void firstScreen() {
-  //background(bg);
   gameScreen = 0; 
   background(bg);
   gamemenu.startMenu();
@@ -156,13 +155,12 @@ void draw()
     gameScreen = 3;
     background(bgEnd);
   endscreen.EndText();
-  endscreen.EndMenu();
+  endscreen.EndMenu(); 
   }
 
-void startGame() {
+void startGame() { //Where are we using this?
   gameScreen=1;
 }
-
 
 //Function for frog movement and sprite display
 void keyPressed()
@@ -204,7 +202,8 @@ void keyPressed()
   }
 }
 
-void TimerDisplay() {
+//For displaying the timer on the game screen
+void TimerDisplay() { 
     startTimer.countUp();
  
     fill(255);
@@ -212,6 +211,7 @@ void TimerDisplay() {
     textSize(20); 
 }
 
+//For reseting the timer on "Play Again" button from the end screen
 void TimerReset() {
    if(gameScreen == 3) {
    startTimer.countDown();
@@ -220,6 +220,7 @@ void TimerReset() {
  }
 }
 
+//Transition to end screen when frog reaches the last safety lane
 void frogSafeCheck()
 {
      if(frog.y < 50) {
