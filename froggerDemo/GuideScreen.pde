@@ -14,14 +14,14 @@ class GuideScreen {
   void GuideMenu() {  
     //Button 1: 
     fill(255, 77, 80, B1); //Button margin colour
-    rect(width/2, height/2 - 75, 200, 50, 5); //Drawing the button
+    rect(width/2, height/2 - 75, 200, 50, 20); //Drawing the button
     fill(255); //Font colour for inside of the button
     //Button text
     text("Play", (width /2) - (textWidth("Play") / 2), (height/2) + ((textAscent() - textDescent()) / 2) - 75);
     
     //Button 3:
     fill(255, 77, 80, B2); //Button margin colour
-    rect(width/2, height/2 + 75, 200, 50, 5); //Drawing the button
+    rect(width/2, height/2 + 75, 200, 50, 20); //Drawing the button
     fill(255); //Font colour for inside of the button
     //Button text
     text("Quit", (width /2) - (textWidth("Quit") / 2), (height/2) + ((textAscent() - textDescent()) / 2) + 75);
