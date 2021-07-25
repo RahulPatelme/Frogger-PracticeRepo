@@ -20,7 +20,7 @@ class Obstacle extends Rectangle{
     log.resize((int)w, (int)h);
     cars = loadImage("data/images/cars.png");
     car = cars.get(5*picW/6, 40, picH/6+10, picH/8-10);
-    cars2 = loadImage("data/images/carGreenFlipTrans.png");
+    cars2 = loadImage("data/images/car-purple-flip.png");
   }
   
   //Second sprite size for car
