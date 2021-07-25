@@ -1,12 +1,13 @@
 Frog frog;
 Lane[] lanes;
 PImage bg;
+PImage bgGuide;
+PImage bgEnd;
 Timer startTimer; 
 
 GameMenu gamemenu;  
+GuideScreen guidescreen;
 EndScreen endscreen;
-boolean MenuEnd = true;
-PImage bgEnd;
 
 int gameScreen = 0;
 
@@ -37,8 +38,8 @@ import processing.sound.*;
 void resetGame()
 {
   //Frog gets placed in a position which is in the middle of screen
-  frog = new Frog(width/2-grid/2, height-grid, grid);
-  //frog = new Frog(width/2-grid/2, height-grid*10, grid); //For testing purposes
+  //frog = new Frog(width/2-grid/2, height-grid, grid);
+  frog = new Frog(width/2-grid/2, height-grid*10, grid); //For testing purposes
 }
 
 void setup()
@@ -56,7 +57,6 @@ void setup()
   //loading the background image for the starting menu
   gamemenu = new GameMenu();
   bg = loadImage("data/images/frogger800-650.jpeg");
-  
   
   rectMode(CENTER);
   stroke(245, 245, 245); //button border
@@ -83,6 +83,13 @@ lanes[10] = new Lane(10,CAR,3,1.5,200,random(-3,3),color(100));
 lanes[11] = new Lane(11,CAR,3,1,180,random(-2,2),color(100));
 lanes[12] = new Lane(12,color(51,204,51));
 
+guidescreen = new GuideScreen(); 
+//loading the background image for the guide screen
+bgGuide = loadImage("data/images/froggerWin800-650.jpeg");
+
+//rectMode(CENTER);
+//stroke(245, 245, 245); //button border
+//textSize(35); //text inside buttons
 
 endscreen = new EndScreen();
 //loading the background image for the end screen
@@ -148,7 +155,9 @@ void draw()
 }
 
   void thirdScreen() {
-    //gameScreen = 2;
+    gameScreen = 2;
+    background(bgGuide); 
+    guidescreen.GuideMenu();
   }
   
   void fourthScreen() {

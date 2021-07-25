@@ -32,6 +32,8 @@ class GameMenu {
       && mouseY > height/2 - 75 - 25 && mouseY < height/2 - 75 + 25) { //pointer collision with Button1
         if (mousePressed) {  
           secondScreen();
+          TimerDisplay();
+          resetGame();
         }
         if (Button1 < 150) { //Highlighting effect by darkening the colour for button 1
           Button1 += 100;
@@ -43,8 +45,9 @@ class GameMenu {
       if (mouseX > width/2 - 100 && mouseX < width/2 + 100 
       && mouseY > height/2 - 25 && mouseY < height/2 + 25) { //pointer collision with Button2
         if (mousePressed) {
-          delay(50); //Why? 
+          //delay(50); //Why? 
           //Call guide window over here
+          thirdScreen();
         }
         if (Button2 < 150) { //Highlighting effect by darkening the colour for button 2
           Button2 += 100;

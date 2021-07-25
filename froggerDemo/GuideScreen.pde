@@ -1,44 +1,44 @@
-class EndScreen {
-  boolean MenuEnd = true;
-  float ButtonPlayAgain = 100, ButtonQuit2 = 100;
+class GuideScreen {
+  boolean MenuGuide = true;
+  float ButtonPlayGuide = 100, ButtonQuitGuide = 100;
   
-  void EndText() {
+  void GuideText() {
     textSize(38);
-    text("You Win!", (width /2) - (textWidth("You Win!") / 2), 80); 
+    text("Guide", (width /2) - (textWidth("Guide") / 2), 80); 
     //fill(153, 223, 165); 
     
     //SCORE
     //TIMER
   }
   
-  void EndMenu() {    
-    //Button Play Again: 
-    fill(255, 77, 80, ButtonPlayAgain); //Button margin colour
+  void GuideMenu() {    
+    //Button Play : 
+    fill(255, 77, 80, ButtonPlayGuide); //Button margin colour
     rect(width/2, height/2 - 75, 200, 50, 5); //Drawing the button
     fill(255); //Font colour for inside of the button
     //Button text
-    text("Play Again", (width /2) - (textWidth("Play Again") / 2), (height/2) + ((textAscent() - textDescent()) / 2) - 75);
+    text("Play", (width /2) - (textWidth("Play") / 2), (height/2) + ((textAscent() - textDescent()) / 2) - 75);
     
-    //Button Quit (End Screen):
-    fill(255, 77, 80, ButtonQuit2);
+    //Button Quit (Close Screen):
+    fill(255, 77, 80, ButtonQuitGuide);
     rect(width/2, height/2, 200, 50, 5);
     fill(255); 
     text("Quit", (width /2) - (textWidth("Quit") / 2), (height/2) + ((textAscent() - textDescent()) / 2));
     
-    if (MenuEnd) {
+    if (MenuGuide) {
       if (mouseX > width/2 - 100 && mouseX < width/2 + 100 
       && mouseY > height/2 - 75 - 25 && mouseY < height/2 - 75 + 25) { //pointer collision with ButtonPlayAgain
         if (mousePressed) {         
-    //MenuEnd = false; 
+    //MenuGuide = false; 
     secondScreen();
     TimerDisplay();
     resetGame();
         }
-        if (ButtonPlayAgain < 150) { //Highlighting effect by darkening the colour for ButtonPlayAgain
-          ButtonPlayAgain += 100;
+        if (ButtonPlayGuide < 150) { //Highlighting effect by darkening the colour for ButtonPlayAgain
+          ButtonPlayGuide += 100;
         }
-      } else if (ButtonPlayAgain > 100) {
-        ButtonPlayAgain -= 100;
+      } else if (ButtonPlayGuide > 100) {
+        ButtonPlayGuide -= 100;
       }
     }
     
@@ -47,11 +47,11 @@ class EndScreen {
         if (mousePressed) {
           exit();  //Quits the window
         }
-        if (ButtonQuit2 < 150) { //Highlighting effect by darkening the colour for ButtonQuit2
-          ButtonQuit2 += 100;
+        if (ButtonQuitGuide < 150) { //Highlighting effect by darkening the colour for ButtonQuit2
+          ButtonQuitGuide += 100;
         }
-      } else if (ButtonQuit2 > 100) {
-        ButtonQuit2 -= 100;
+      } else if (ButtonQuitGuide > 100) {
+        ButtonQuitGuide -= 100;
       }
    }
 }
