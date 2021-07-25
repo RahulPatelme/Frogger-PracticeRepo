@@ -4,6 +4,14 @@ PImage bg;
 //GameMenu gamemenu;
 Timer startTimer; 
 
+ //importing sound library
+import processing.sound.*;
+  
+  SoundFile file;
+  
+  //attaching audio file
+  String audioName = "data/sounds/frogger-sound.wav";
+  String path;
 
   boolean Menu = true, Play;
   //PImage bg;
@@ -36,6 +44,7 @@ void resetGame()
 {
   //Frog gets placed in a position which is in the middle of screen
   frog = new Frog(width/2-grid/2, height-grid, grid);
+  //frog = new Frog(width/2-grid/2, height-grid*10, grid);
 }
 
 void setup()
@@ -44,6 +53,11 @@ void setup()
   size(800, 650);
   //Function to place frog here as starting point as well
   resetGame();
+  
+   path = sketchPath(audioName);
+    file = new SoundFile(this, path);
+    file.play(); 
+    file.loop(); 
   
   //gamemenu = new GameMenu();
   //loading the background image
