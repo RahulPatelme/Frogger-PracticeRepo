@@ -2,6 +2,10 @@ class EndScreen {
   float ButtonPlayAgain = 100, ButtonQuit2 = 100;
   
   void EndText() {
+    textSize(38);
+    text("You Win!", (width /2) - (textWidth("You Win!") / 2), 80); 
+    //fill(153, 223, 165); 
+    
     //SCORE
     //TIMER
   }

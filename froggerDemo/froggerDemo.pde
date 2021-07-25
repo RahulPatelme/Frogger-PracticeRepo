@@ -90,7 +90,7 @@ bgEnd = loadImage("data/images/froggerWin800-650.jpeg");
   
   rectMode(CENTER);
   stroke(245, 245, 245); //button border
-  textSize(35); //text inside buttons
+  //fill(153, 223, 165);
   
   startTimer = new Timer(0); //Timer starting position
 }
