@@ -5,16 +5,11 @@ Timer startTimer;
 
 //importing sound library
 import processing.sound.*;
-  
   SoundFile file;
   
   //attaching audio file
   String audioName = "data/sounds/frogger-sound.wav";
   String path;
-
-  //For starting menu:
-  //boolean Menu = true, Play;
-  //float Button1 = 100, Button2 = 100, Button3 = 100;
   
 GameMenu gamemenu;  
 EndScreen endscreen;
@@ -90,7 +85,7 @@ lanes[12] = new Lane(12,color(51,204,51));
 
 
 endscreen = new EndScreen();
-  bgEnd = loadImage("data/images/froggerEnd800-650.jpeg");
+  bgEnd = loadImage("data/images/froggerWin800-650.jpeg");
   
   rectMode(CENTER);
   stroke(245, 245, 245); //button border
