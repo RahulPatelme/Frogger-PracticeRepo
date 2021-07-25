@@ -12,12 +12,16 @@ class Timer  {
    return(Time); 
  }
  
- //void setTime(float set) //set the timer //Do we need this? 
- //{
- // Time = set; 
- //}
+ void setTime(float set) //set the timer //Do we need this? 
+ {
+  Time = set; 
+ }
  
  void countUp() { 
   Time += 1 / frameRate; 
+ }
+ 
+ void countDown() {
+   Time -= 1 / frameRate; 
  }
 }

@@ -24,7 +24,10 @@ class EndScreen {
       if (mouseX > width/2 - 100 && mouseX < width/2 + 100 
       && mouseY > height/2 - 75 - 25 && mouseY < height/2 - 75 + 25) { //pointer collision with ButtonPlayAgain
         if (mousePressed) {         
-          MenuEnd = false; //Call game window over here
+    //MenuEnd = false; //Call game window over here
+    secondScreen();
+    TimerDisplay();
+    resetGame();
         }
         if (ButtonPlayAgain < 150) { //Highlighting effect by darkening the colour for ButtonPlayAgain
           ButtonPlayAgain += 100;
