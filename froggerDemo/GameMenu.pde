@@ -69,13 +69,5 @@ class GameMenu {
         Button3 -= 100;
       }
     }
-    
-    if (Button1 == 0 && Button2 == 0 && Button3 == 0) { //I dont remember what this code is for
-      Play = true;
-    }
-
-    if (Button1 == 0 && Button2 == 0 && Button3 == 0) { //Idk what this code is for
-      Play = true;
-    }
   }
 }
