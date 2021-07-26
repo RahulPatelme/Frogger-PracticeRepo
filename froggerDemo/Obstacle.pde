@@ -22,12 +22,7 @@ class Obstacle extends Rectangle{
     car = cars.get(5*picW/6, 40, picH/6+10, picH/8-10);
     cars2 = loadImage("data/images/car-purple-flip.png");
   }
-  
-  //Second sprite size for car
-  void resize() {
-   cars2.resize(100, 100); 
-  }
-  
+    
   //Function for obstacle movement
   void update()
   {
