@@ -1,27 +1,26 @@
 class Timer  {
- float Time; 
+  float Time; 
+  //set is temporary variable
+  Timer(float set) //Constructor when you create a new Timer //Needed for setting the starting position
+  {
+    Time = set; 
+  }
+  
+  float getTime() //returns the current time 
+  {
+    return(Time); 
+  }
  
- //set is temporary variable 
- Timer(float set) //Constructor when you create a new Timer //Needed for setting the starting position  
- {
-   Time = set; 
- }
+  void setTime(float set) //set the timer 
+  {
+    Time = set; 
+  }
  
- float getTime() //returns the current time 
- {
-   return(Time); 
- }
+  void countUp() { 
+    Time += 1 / frameRate; 
+  }
  
- void setTime(float set) //set the timer 
- {
-  Time = set; 
- }
- 
- void countUp() { 
-  Time += 1 / frameRate; 
- }
- 
- void countDown() {
-   Time -= 1 / frameRate; 
- }
+  void countDown() {
+    Time -= 1 / frameRate; 
+  }
 }

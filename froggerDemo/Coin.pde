@@ -23,13 +23,13 @@ class Coin extends Rectangle{
     }
   }
   
-   void showCoin() {
-     image(coin[i], x, y);
-     if(frameCount%15==0){
-        i++;
-        if (i==coin.length){
-          i=0;
-        }
+  void showCoin() {
+    image(coin[i], x, y);
+    if(frameCount%15==0){
+      i++;
+      if (i==coin.length){
+        i=0;
       }
+    }
   }
 }

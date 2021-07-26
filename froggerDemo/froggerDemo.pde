@@ -27,11 +27,11 @@ float grid = 50;
 
 //importing sound library
 import processing.sound.*;
-  SoundFile file;
+SoundFile file;
   
-  //attaching audio file
-  String audioName = "data/sounds/frogger-sound.wav";
-  String path;
+//attaching audio file
+String audioName = "data/sounds/frogger-sound.wav";
+String path;
   
 int score;
 
@@ -48,9 +48,30 @@ int score;
 void resetGame()
 {
   //Frog gets placed in a position which is in the middle of screen
-  //frog = new Frog(width/2-grid/2, height-grid, grid);
-  frog = new Frog(width/2-grid/2, height-grid*10, grid); //For testing purposes
+  frog = new Frog(width/2-grid/2, height-grid, grid);
+  //frog = new Frog(width/2-grid/2, height-grid*10, grid); //For testing purposes
   score=0;
+  
+  //creating lanes by calling the class
+  int totalLanes = 13;
+  lanes = new Lane[totalLanes];
+  //Lanes start from top of screen and go down, here we also randomize the speed of the obstacles objects
+  
+  //(number of lane, color of lane)
+  lanes[0] = new Lane(0,color(51,204,51), COIN, 0, 0);
+  //(lane number, type of obstacle, length of obstacle, distance btw obstacles, randomized speed of obstacles, color of lane)
+  lanes[1] = new Lane(1,LOG,5,1.5,400,random(-5,5),color(51,153,255));
+  lanes[2] = new Lane(2,LOG,3,3,300,random(-5,5),color(51,153,255));
+  lanes[3] = new Lane(3,color(51,204,51), COIN, 5, random(200));
+  lanes[4] = new Lane(4,LOG,2,1.8,200,random(-4,4),color(51,153,255));
+  lanes[5] = new Lane(5,LOG,3,2.5,190,random(-1,1),color(51,153,255));
+  lanes[6] = new Lane(6,color(51,204,51), COIN, 5, random(200));
+  lanes[7] = new Lane(7,CAR,3,1,300,random(-5,5),color(100));
+  lanes[8] = new Lane(8,CAR,3,1,200,random(-4,4),color(100));
+  lanes[9] = new Lane(9,color(51,204,51), COIN, 5, random(200));
+  lanes[10] = new Lane(10,CAR,3,1.5,200,random(-3,3),color(100));
+  lanes[11] = new Lane(11,CAR,3,1,180,random(-2,2),color(100));
+  lanes[12] = new Lane(12,color(51,204,51), COIN, 5, random(200));
 }
 
 void setup()
@@ -60,10 +81,10 @@ void setup()
   //Function to place frog here as starting point as well
   resetGame();
   
-    path = sketchPath(audioName);
-    file = new SoundFile(this, path);
-    file.play(); 
-    file.loop(); 
+  path = sketchPath(audioName);
+  file = new SoundFile(this, path);
+  file.play(); 
+  file.loop(); 
   
   //loading the background image for the starting menu
   gamemenu = new GameMenu();
@@ -73,34 +94,13 @@ void setup()
   stroke(245, 245, 245); //button border
   textSize(45); //text inside buttons
   
-//creating lanes by calling the class
-int totalLanes = 13;
-lanes = new Lane[totalLanes];
-//Lanes start from top of screen and go down, here we also randomize the speed of the obstacles objects
-
-//(number of lane, color of lane)
-lanes[0] = new Lane(0,color(51,204,51), COIN, 0, 200);
-//(lane number, type of obstacle, length of obstacle, distance btw obstacles, randomized speed of obstacles, color of lane)
-lanes[1] = new Lane(1,LOG,5,1.5,400,random(-5,5),color(51,153,255));
-lanes[2] = new Lane(2,LOG,3,3,300,random(-5,5),color(51,153,255));
-lanes[3] = new Lane(3,color(51,204,51), COIN, 5, 200);
-lanes[4] = new Lane(4,LOG,2,1.8,200,random(-4,4),color(51,153,255));
-lanes[5] = new Lane(5,LOG,3,2.5,190,random(-1,1),color(51,153,255));
-lanes[6] = new Lane(6,color(51,204,51), COIN, 5, 200);
-lanes[7] = new Lane(7,CAR,3,1,300,random(-5,5),color(100));
-lanes[8] = new Lane(8,CAR,3,1,200,random(-4,4),color(100));
-lanes[9] = new Lane(9,color(51,204,51), COIN, 5, 200);
-lanes[10] = new Lane(10,CAR,3,1.5,200,random(-3,3),color(100));
-lanes[11] = new Lane(11,CAR,3,1,180,random(-2,2),color(100));
-lanes[12] = new Lane(12,color(51,204,51), COIN, 5, 200);
-
-guidescreen = new GuideScreen(); 
-//loading the background image for the guide screen
-bgGuide = loadImage("data/images/froggerGuide800-650.png");
-
-endscreen = new EndScreen();
-//loading the background image for the end screen
-bgEnd = loadImage("data/images/froggerWin800-650.jpeg");
+  guidescreen = new GuideScreen(); 
+  //loading the background image for the guide screen
+  bgGuide = loadImage("data/images/froggerGuide800-650.png");
+  
+  endscreen = new EndScreen();
+  //loading the background image for the end screen
+  bgEnd = loadImage("data/images/froggerWin800-650.jpeg");
   
   rectMode(CENTER);
   stroke(245, 245, 245); //button border
@@ -145,19 +145,19 @@ void secondScreen() {
   //Displaying the frog
   frog.update();
   if (keyCode == UP){
-      frog.showUp();
-    }
-    else if (keyCode == LEFT){
-      frog.showLeft();
-    }
-    else if (keyCode == DOWN){
-      frog.showDown();
-    }
-    else if (keyCode == RIGHT){
-      frog.showRight();
-    }else{
-      frog.showUp();
-    }
+    frog.showUp();
+   }
+  else if (keyCode == LEFT){
+    frog.showLeft();
+  }
+  else if (keyCode == DOWN){
+    frog.showDown();
+  }
+  else if (keyCode == RIGHT){
+    frog.showRight();
+  }else{
+    frog.showUp();
+  }
   
   int laneIndex = int(frog.y / grid);
   lanes[laneIndex].check(frog);
@@ -198,30 +198,31 @@ void keyPressed()
 
 //For displaying the timer on the game screen
 void TimerDisplay() { 
-    startTimer.countUp();
- 
-    fill(255);
-    text(startTimer.getTime(), 10, 20); 
-    textSize(20); 
+  startTimer.countUp();
+  fill(255);
+  text(startTimer.getTime(), 10, 20); 
+  textSize(20); 
 }
 
 //For reseting the timer on "Play Again" button from the end screen
 void TimerReset() {
-   if(gameScreen == 3) {
-   startTimer.countDown();
-   } else {
-   startTimer.setTime(0);
- }
+  if(gameScreen == 3) {
+    startTimer.countDown();
+  } else {
+    startTimer.setTime(0);
+  }
 }
 
 void playerScore(){
-  
+  fill(255);
+  text("Score: "+score, 150, 20); 
+  textSize(20); 
 }
 
 //Transition to end screen when frog reaches the last safety lane
 void frogSafeCheck()
 {
-     if(frog.y < 50) {
-       gameScreen=3;
-    }
+  if(frog.y < 50) {
+    gameScreen=3;
+  }
 }

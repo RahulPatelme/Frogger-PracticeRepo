@@ -12,14 +12,12 @@ class Lane extends Rectangle {
     super(0,index*grid,width*2,grid);
     type = t;
     obstacles = new Obstacle[n];
-    
     float offset = random(0,200);
     for(int i = 0; i < n; i++)
     {
       //Defining the obstacle variables in the lane
       obstacles[i] = new Obstacle(offset + spacing*i, index*grid-25, grid*len, grid, speed);
     }
-    
     col = c;
   }
   
@@ -122,16 +120,16 @@ class Lane extends Rectangle {
   int score()
   {
     for(Coin coin : coin)
+    {
+      if(frog.intersects(coin))
       {
-        if(frog.intersects(coin))
-        {
-          //player's score +1
-          score++;
-          //println(score);
-          coin.x=-100;
-          coin.y=-100;
-        }
+        //player's score +1
+        score++;
+        println(score);
+        coin.x=-100;
+        coin.y=-100;
       }
-return score;  
-}
+    }
+    return score;
+  }
 }

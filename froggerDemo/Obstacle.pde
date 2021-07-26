@@ -26,13 +26,14 @@ class Obstacle extends Rectangle{
   //Function for obstacle movement
   void update()
   {
-    //when obstacles moving to the right
     x += speed;
+    //when obstacles moving to the right
     if(speed > 0 && x > width)
     {
-      //when obstacles moving to the left
       x = - w;
-    } else if(speed < 0 && x < -w)
+    }
+    //when obstacles moving to the left
+    else if(speed < 0 && x < -w)
     {
       x = width + w;
     }
@@ -50,7 +51,7 @@ class Obstacle extends Rectangle{
     }
   }
   
-   void showLog() {
+  void showLog() {
     image(log, x, y);
   }
 }
