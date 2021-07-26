@@ -11,26 +11,31 @@ class Lane extends Rectangle {
     super(0,index*grid,width*2,grid);
     type = t;
     obstacles = new Obstacle[n];
+    
     float offset = random(0,200);
     for(int i = 0; i < n; i++)
     {
       //Defining the obstacle variables in the lane
       obstacles[i] = new Obstacle(offset + spacing*i, index*grid-25, grid*len, grid, speed);
     }
-    //for(int i = 0; i < n; i++)
-    //{
-    //  //Defining the coin variables in the lane
-    //  coin[i] = new Coin(x, y, w);
-    //}
+    
     col = c;
   }
   
   //Defining the safety lanes
-  Lane(int index, color c)
+  Lane(int index, color c, int t, int n, float spacing)
   {
     super(0,index*grid,width*2,grid);
-    type = SAFETY;
+    //type = SAFETY;
+    type= t;
     obstacles = new Obstacle[0];
+    coin = new Coin[n];
+    float offset = random(0,200);
+    for(int i = 0; i < n; i++)
+    {
+      //Defining the coin variables in the lane
+      coin[i] = new Coin(offset + spacing*i, index*grid-25, grid);
+    }
     col = c;
   }
   
@@ -94,5 +99,14 @@ class Lane extends Rectangle {
         o.showLog();
       }
     }
+    
+    ////display coins
+    else if(type==COIN)
+    {
+      for(Coin coin : coin)
+      {
+        coin.showCoin();
+      }
+    } 
   }
 }
