@@ -72,6 +72,19 @@ class Lane extends Rectangle {
         resetGame();
       }
     }
+    
+    //if the frog intersects coins
+    else if(type == COIN)
+    {
+      for(Coin coin : coin)
+      {
+        if(frog.intersects(coin))
+        {
+          //player's score +1
+          
+        }
+      }
+    }
   }
   
   //Function for displaying lanes and obstacle objects
