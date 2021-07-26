@@ -17,6 +17,6 @@ class Coin extends Rectangle{
   }
   
    void showCoin() {
-    image(coin, x, y);
+   image(coin, x, y);
   }
 }

@@ -4,6 +4,8 @@ PImage bg;
 PImage bgGuide;
 PImage bgEnd;
 Timer startTimer; 
+//boolean bool = false; 
+//int TimerSaveVar;
 
 GameMenu gamemenu;  
 GuideScreen guidescreen;
@@ -206,6 +208,12 @@ void TimerReset() {
    startTimer.setTime(0);
  }
 }
+
+//void TimerSave() {
+//  if(frog.y<50) {
+//    TimerSaveVar = Timer.getTime();
+//  }
+//}
 
 //Transition to end screen when frog reaches the last safety lane
 void frogSafeCheck()

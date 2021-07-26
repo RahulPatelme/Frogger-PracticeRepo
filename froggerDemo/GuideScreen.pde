@@ -3,8 +3,8 @@ class GuideScreen {
   float B1 = 100, B2 = 100;
   
   void GuideText() {
-    textSize(38);
-    text("Guide:", (width /2) - (textWidth("Guide:") / 2), 60);  
+    textSize(36);
+    text("Guide:", (width /2) - (textWidth("Guide:") / 2), 58);  
     
     textSize(28);
     text("Control the Frog with 4 Arrows Keys", (width /2) - 
