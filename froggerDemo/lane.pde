@@ -80,17 +80,6 @@ class Lane extends Rectangle {
     else if(type == COIN)
     {
       score();
-      //for(Coin coin : coin)
-      //{
-      //  //if(frog.intersects(coin))
-      //  //{
-      //  //  //player's score +1
-      //  //  score();
-      //  //  println(score);
-      //  //  coin.x=-100;
-      //  //  coin.y=-100;
-      //  //}
-      //}
     }
   }
   
@@ -129,6 +118,7 @@ class Lane extends Rectangle {
       }
     } 
   }
+  //function for counting score with coins
   int score()
   {
     for(Coin coin : coin)
