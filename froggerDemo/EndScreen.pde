@@ -29,7 +29,6 @@ class EndScreen {
       if (mouseX > width/2 - 100 && mouseX < width/2 + 100 
       && mouseY > height/2 - 75 - 25 && mouseY < height/2 - 75 + 25) { //pointer collision with ButtonPlayAgain
         if (mousePressed) {         
-    //MenuEnd = false; 
     secondScreen();
     TimerDisplay();
     resetGame();
