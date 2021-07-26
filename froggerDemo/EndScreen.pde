@@ -4,10 +4,10 @@ class EndScreen {
   
   void EndText() {
     textSize(38);
-    text("You Win!", (width /2) - (textWidth("You Win!") / 2), 80); 
-    //fill(153, 223, 165); 
-    
-    //SCORE()to be added
+    text("You Win!", (width /2) - (textWidth("You Win!") / 2), 60);
+    textSize(32);
+    text("Score:", (width /2) - (textWidth("Score:") / 2), 120);
+    text(score, (width /2) - (textWidth("  ") / 2), 150);
     //TIMER()to be added
   }
   

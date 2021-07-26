@@ -127,7 +127,7 @@ class Lane extends Rectangle {
         {
           //player's score +1
           score++;
-          println(score);
+          //println(score);
           coin.x=-100;
           coin.y=-100;
         }
