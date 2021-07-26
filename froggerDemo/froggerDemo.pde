@@ -1,3 +1,10 @@
+/*
+Made by:
+Erica Novianti,
+Rahul Patel,
+Nemanja Vukikjevikj
+*/
+
 Frog frog;
 Lane[] lanes;
 PImage bg;

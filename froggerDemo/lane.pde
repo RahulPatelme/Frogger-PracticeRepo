@@ -3,7 +3,7 @@ class Lane extends Rectangle {
   Coin[] coin;
   int col;
   int type;
-  int score;
+  
   
   //Defining lane variables
   Lane(int index, int t, int n, float len, float spacing, float speed, color c)
@@ -79,17 +79,18 @@ class Lane extends Rectangle {
     //if the frog intersects coins
     else if(type == COIN)
     {
-      for(Coin coin : coin)
-      {
-        if(frog.intersects(coin))
-        {
-          //player's score +1
-          score++;
-          println(score);
-          coin.x=-100;
-          coin.y=-100;
-        }
-      }
+      score();
+      //for(Coin coin : coin)
+      //{
+      //  //if(frog.intersects(coin))
+      //  //{
+      //  //  //player's score +1
+      //  //  score();
+      //  //  println(score);
+      //  //  coin.x=-100;
+      //  //  coin.y=-100;
+      //  //}
+      //}
     }
   }
   
@@ -128,4 +129,19 @@ class Lane extends Rectangle {
       }
     } 
   }
+  int score()
+  {
+    for(Coin coin : coin)
+      {
+        if(frog.intersects(coin))
+        {
+          //player's score +1
+          score++;
+          println(score);
+          coin.x=-100;
+          coin.y=-100;
+        }
+      }
+return score;  
+}
 }
