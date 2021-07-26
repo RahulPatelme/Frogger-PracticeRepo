@@ -7,7 +7,7 @@ class EndScreen {
     text("You Win!", (width /2) - (textWidth("You Win!") / 2), 60);
     textSize(32);
     text("Score:", (width /2) - (textWidth("Score:") / 2), 120);
-    text(score, (width /2) - (textWidth("  ") / 2), 150);
+    text(score, (width /2) - (textWidth(" ") / 2), 150);
     //TIMER()to be added
   }
   
