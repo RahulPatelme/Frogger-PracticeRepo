@@ -48,7 +48,7 @@ int score;
 void resetGame()
 {
   //Frog gets placed in a position which is in the middle of screen
-  frog = new Frog(width/2-grid/2, height-grid*10, grid);
+  frog = new Frog(width/2-grid/2, height-grid, grid);
   //frog = new Frog(width/2-grid/2, height-grid*10, grid); //For testing purposes
   score=0;
   
@@ -81,6 +81,7 @@ void setup()
   //Function to place frog here as starting point as well
   resetGame();
   
+  //Audio file loading
   path = sketchPath(audioName);
   file = new SoundFile(this, path);
   file.play(); 
