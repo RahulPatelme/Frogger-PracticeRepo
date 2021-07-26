@@ -86,7 +86,7 @@ lanes[12] = new Lane(12,color(51,204,51), COIN, 1, 200);
 
 guidescreen = new GuideScreen(); 
 //loading the background image for the guide screen
-bgGuide = loadImage("data/images/froggerWin800-650.jpeg");
+bgGuide = loadImage("data/images/froggerGuide800-650.png");
 
 //rectMode(CENTER);
 //stroke(245, 245, 245); //button border
