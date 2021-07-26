@@ -3,6 +3,7 @@ class Lane extends Rectangle {
   Coin[] coin;
   int col;
   int type;
+  int score;
   
   //Defining lane variables
   Lane(int index, int t, int n, float len, float spacing, float speed, color c)
@@ -22,6 +23,7 @@ class Lane extends Rectangle {
     col = c;
   }
   
+  
   //Defining the safety lanes
   Lane(int index, color c, int t, int n, float spacing)
   {
@@ -37,6 +39,7 @@ class Lane extends Rectangle {
       coin[i] = new Coin(offset + spacing*i, index*grid-25, grid);
     }
     col = c;
+    score=0;
   }
   
   //Collision detection
@@ -81,7 +84,10 @@ class Lane extends Rectangle {
         if(frog.intersects(coin))
         {
           //player's score +1
-          
+          score++;
+          println(score);
+          coin.x=-100;
+          coin.y=-100;
         }
       }
     }
