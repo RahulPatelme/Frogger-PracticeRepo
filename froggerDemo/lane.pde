@@ -4,7 +4,6 @@ class Lane extends Rectangle {
   int col;
   int type;
   
-  
   //Defining lane variables
   Lane(int index, int t, int n, float len, float spacing, float speed, color c)
   {
@@ -20,7 +19,6 @@ class Lane extends Rectangle {
     }
     col = c;
   }
-  
   
   //Defining the safety lanes
   Lane(int index, color c, int t, int n, float spacing)
@@ -84,6 +82,7 @@ class Lane extends Rectangle {
   //Function for displaying lanes and obstacle objects
   void run()
   {
+    //drawing each lane
     fill(col);
     rect(x,y,w,h);
  

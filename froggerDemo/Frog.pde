@@ -1,6 +1,4 @@
 class Frog extends Rectangle {
-  //int picW = 512;
-  //int picH = 800;
   PImage up, left, right, down;
   int frogSize, frogX, frogY;
   PVector frogLoc;

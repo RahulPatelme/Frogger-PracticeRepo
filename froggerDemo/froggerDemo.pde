@@ -1,8 +1,8 @@
 /*
 Made by:
-Erica Novianti,
-Rahul Patel,
-Nemanja Vukikjevikj
+Erica Novianti: 1000076157,
+Rahul Patel: 1000069744,
+Nemanja Vukikjevikj: 1000071694
 */
 
 Frog frog;
@@ -50,13 +50,14 @@ void resetGame()
   //Frog gets placed in a position which is in the middle of screen
   frog = new Frog(width/2-grid/2, height-grid, grid);
   //frog = new Frog(width/2-grid/2, height-grid*10, grid); //For testing purposes
+  
+  //reset the player score
   score=0;
   
   //creating lanes by calling the class
   int totalLanes = 13;
   lanes = new Lane[totalLanes];
   //Lanes start from top of screen and go down, here we also randomize the speed of the obstacles objects
-  
   //(number of lane, color of lane)
   lanes[0] = new Lane(0,color(51,204,51), COIN, 0, 0);
   //(lane number, type of obstacle, length of obstacle, distance btw obstacles, randomized speed of obstacles, color of lane)
@@ -91,7 +92,7 @@ void setup()
   gamemenu = new GameMenu();
   bg = loadImage("data/images/frogger800-650.jpeg");
   
-  rectMode(CENTER);
+  rectMode(CENTER); //center the rectangle
   stroke(245, 245, 245); //button border
   textSize(45); //text inside buttons
   
@@ -102,9 +103,6 @@ void setup()
   endscreen = new EndScreen();
   //loading the background image for the end screen
   bgEnd = loadImage("data/images/froggerWin800-650.jpeg");
-  
-  //rectMode(CENTER);
-  //stroke(245, 245, 245); //button border
   
   startTimer = new Timer(0); //Timer starting position
 }
@@ -126,12 +124,14 @@ void draw()
   }
 }
 
+//game menu
 void firstScreen() {
   gameScreen = 0; 
   background(bg);
   gamemenu.startMenu();
 }
-  
+
+//gameplay 
 void secondScreen() {
   gameScreen = 1;
   background(0);
@@ -164,13 +164,15 @@ void secondScreen() {
   lanes[laneIndex].check(frog);
 }
 
+//guide screen
 void thirdScreen() {
   gameScreen = 2;
   background(bgGuide); 
   guidescreen.GuideText();
   guidescreen.GuideMenu();
 }
-  
+
+//end or win screen
 void fourthScreen() {
   gameScreen = 3;
   background(bgEnd);
@@ -214,6 +216,7 @@ void TimerReset() {
   }
 }
 
+//displaying the player score
 void playerScore(){
   fill(255);
   text("Score: "+score, 150, 20); 

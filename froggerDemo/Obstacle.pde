@@ -39,7 +39,7 @@ class Obstacle extends Rectangle{
     }
   }
   
-  //function for displaying obstacles
+  //function for displaying cars
   void showCar()
   {
     image(car, x, y);
@@ -51,6 +51,7 @@ class Obstacle extends Rectangle{
     }
   }
   
+  //function for displaying logs
   void showLog() {
     image(log, x, y);
   }
