@@ -103,8 +103,8 @@ void setup()
   //loading the background image for the end screen
   bgEnd = loadImage("data/images/froggerWin800-650.jpeg");
   
-  rectMode(CENTER);
-  stroke(245, 245, 245); //button border
+  //rectMode(CENTER);
+  //stroke(245, 245, 245); //button border
   
   startTimer = new Timer(0); //Timer starting position
 }

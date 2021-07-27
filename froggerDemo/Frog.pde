@@ -21,7 +21,6 @@ class Frog extends Rectangle {
     right = loadImage("data/images/right.png");
     right.resize((int)w, (int)w);
     
-    //frogLoc = new PVector(x, y);
   }
 
   //Function for attaching the frog to the log obstacle
