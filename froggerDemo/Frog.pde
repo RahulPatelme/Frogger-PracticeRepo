@@ -44,22 +44,22 @@ class Frog extends Rectangle {
   //Setting size of frog
   void showUp()
   {
-    image(up, x, y-15);
+    image(up, x, y-25);
   }
 
   void showDown()
   {
-    image(down, x, y-15);
+    image(down, x, y-25);
   }
 
   void showLeft()
   {
-    image(left, x, y-15);
+    image(left, x, y-25);
   }
 
   void showRight()
   {
-    image(right, x, y-15);
+    image(right, x, y-25);
   }
 
   //Function for frogs movement on x and y axis
