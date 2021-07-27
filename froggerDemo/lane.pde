@@ -32,7 +32,7 @@ class Lane extends Rectangle {
     for(int i = 0; i < n; i++)
     {
       //Defining the coin variables in the lane
-      coin[i] = new Coin(offset + spacing*i, index*grid-25, grid);
+      coin[i] = new Coin(offset + spacing*i, index*grid-20, grid);
     }
     col = c;
     score=0;
